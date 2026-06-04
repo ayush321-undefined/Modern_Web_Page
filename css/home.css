@@ -1,0 +1,434 @@
+/* ============================================
+   Hero Section
+   ============================================ */
+
+.hero {
+  padding-top: 60px;
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 171, 228, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 171, 228, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 0%, black 40%, transparent 100%);
+  pointer-events: none;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 64px;
+  align-items: center;
+}
+
+/* ============================================
+   Hero Eyebrow (Badge)
+   ============================================ */
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px 6px 8px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 24px;
+  animation: fadeUp 0.6s var(--ease) both;
+}
+
+.hero-eyebrow .dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--gradient);
+  display: grid;
+  place-items: center;
+  font-size: 0.65rem;
+  color: #FFFFFF;
+  font-weight: 900;
+}
+
+/* ============================================
+   Hero Content
+   ============================================ */
+
+.hero-content h1 {
+  font-size: clamp(3rem, 5.5vw, 5.6rem);
+  margin-bottom: 24px;
+  letter-spacing: -0.05em;
+  animation: fadeUp 0.7s 0.1s var(--ease) both;
+}
+
+.hero-content h1 .line2 {
+  display: block;
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+.hero-content > p {
+  color: var(--muted);
+  max-width: 560px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  animation: fadeUp 0.7s 0.2s var(--ease) both;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  margin: 32px 0 44px;
+  flex-wrap: wrap;
+  animation: fadeUp 0.7s 0.3s var(--ease) both;
+}
+
+/* ============================================
+   Stats Section
+   ============================================ */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  animation: fadeUp 0.7s 0.4s var(--ease) both;
+}
+
+.stat-card {
+  padding: 20px;
+  cursor: none;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 171, 228, 0.35);
+  box-shadow: 0 20px 50px rgba(0, 171, 228, 0.12), 0 0 30px rgba(0, 119, 182, 0.1);
+}
+
+.stat-card h3 {
+  font-size: 1.8rem;
+  transition: color 0.3s;
+}
+
+.stat-card:hover h3 {
+  color: var(--secondary);
+}
+
+.stat-card p {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-top: 2px;
+}
+
+/* ============================================
+   Hero Visual & Dashboard Card
+   ============================================ */
+
+.hero-visual {
+  position: relative;
+  animation: fadeUp 0.8s 0.2s var(--ease) both;
+}
+
+.dashboard-card {
+  padding: 22px;
+  min-height: 480px;
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: var(--gradient);
+  opacity: 0;
+  transition: opacity 0.5s;
+  z-index: -1;
+}
+
+.dashboard-card:hover::before {
+  opacity: 0.15;
+}
+
+/* ============================================
+   Dashboard Top Controls
+   ============================================ */
+
+.dash-top {
+  display: flex;
+  gap: 7px;
+  margin-bottom: 20px;
+}
+
+.dash-top span {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.dash-top span:nth-child(1) {
+  background: #ff5f57;
+}
+
+.dash-top span:nth-child(2) {
+  background: #febc2e;
+}
+
+.dash-top span:nth-child(3) {
+  background: #28c840;
+}
+
+/* ============================================
+   Chart Styles
+   ============================================ */
+
+.chart-box {
+  height: 210px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(0, 119, 182, 0.22), rgba(0, 171, 228, 0.06));
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 171, 228, 0.1);
+  margin-bottom: 18px;
+}
+
+.chart-line {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(transparent 93%, rgba(0, 171, 228, 0.06) 93%),
+    linear-gradient(90deg, transparent 94%, rgba(0, 171, 228, 0.05) 94%);
+  background-size: 100% 35px, 35px 100%;
+}
+
+.chart-line::after {
+  content: '';
+  position: absolute;
+  left: 4%;
+  bottom: 22%;
+  width: 90%;
+  height: 2px;
+  background: linear-gradient(90deg, #E9F1FA, #00ABE4, #0077B6);
+  box-shadow: 0 0 24px rgba(0, 171, 228, 0.6);
+  transform: skewY(-8deg);
+  border-radius: 999px;
+}
+
+.chart-label {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(0, 171, 228, 0.12);
+  border: 1px solid rgba(0, 171, 228, 0.22);
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+/* ============================================
+   Mini Grid Cards
+   ============================================ */
+
+.mini-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.mini-card {
+  padding: 16px;
+  border-radius: 14px;
+  background: rgba(0, 171, 228, 0.05);
+  border: 1px solid rgba(0, 171, 228, 0.1);
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.mini-card:hover {
+  border-color: rgba(233, 241, 250, 0.25);
+  background: rgba(233, 241, 250, 0.05);
+}
+
+.mini-card h4 {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.mini-card p {
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+/* ============================================
+   CTA Section
+   ============================================ */
+
+.cta-section .cta-box {
+  padding: 38px 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section .cta-box::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 171, 228, 0.12), transparent 70%);
+  right: -100px;
+  top: -150px;
+  pointer-events: none;
+}
+
+/* ============================================
+   Responsive Design - Tablet
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .hero-grid,
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-section .cta-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ============================================
+   Responsive Design - Mobile
+   ============================================ */
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    letter-spacing: -0.04em;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .mini-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ============================================
+   Dashboard Card — Improved
+   ============================================ */
+
+.dashboard-card {
+  padding: 22px;
+  min-height: 480px;
+  position: relative;
+  overflow: hidden;
+  border-top: 3px solid #0077B6;
+}
+
+.dashboard-card::after {
+  display: none;
+}
+
+.chart-box {
+  background: linear-gradient(160deg, rgba(0, 119, 182, 0.08) 0%, rgba(0, 171, 228, 0.03) 100%);
+  border: 1px solid rgba(0, 171, 228, 0.15);
+  position: relative;
+}
+
+/* Fake bar chart inside chart-box */
+.chart-line::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(180deg, rgba(0, 171, 228, 0.15), rgba(0, 171, 228, 0.03));
+  clip-path: polygon(0% 100%, 8% 70%, 18% 75%, 30% 45%, 42% 50%, 55% 25%, 68% 30%, 80% 10%, 92% 15%, 100% 5%, 100% 100%);
+}
+
+.chart-line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 40%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #0077B6 8%, #00ABE4 55%, #0077B6 80%, #00ABE4 92%, transparent 100%);
+  box-shadow: 0 0 12px rgba(0, 171, 228, 0.5);
+  clip-path: polygon(0% 100%, 8% 60%, 18% 65%, 30% 35%, 42% 40%, 55% 15%, 68% 20%, 80% 0%, 92% 5%, 100% 0%, 100% 100%);
+  transform: none;
+  border-radius: 0;
+}
+
+/* Chart dots */
+.chart-box::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #0077B6;
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px rgba(0, 171, 228, 0.6);
+  right: 8%;
+  bottom: calc(40% + 14px);
+}
+
+.mini-card {
+  background: rgba(0, 171, 228, 0.04);
+  border: 1px solid rgba(0, 171, 228, 0.12);
+  transition: all 0.3s var(--ease);
+}
+
+.mini-card:hover {
+  background: rgba(0, 171, 228, 0.09);
+  border-color: rgba(0, 171, 228, 0.28);
+  transform: translateY(-2px);
+}
+
+.mini-card h4 {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.mini-card p {
+  color: var(--primary);
+  font-weight: 800;
+  font-size: 1.05rem;
+}
+
+/* Dark mode dashboard overrides */
+[data-theme="dark"] .mini-card p {
+  color: var(--secondary);
+}
+
+[data-theme="dark"] .chart-box {
+  background: linear-gradient(160deg, rgba(0, 119, 182, 0.18) 0%, rgba(0, 171, 228, 0.06) 100%);
+}

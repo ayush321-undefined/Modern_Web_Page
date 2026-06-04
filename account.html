@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Account - ZyntricAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/account.css" />
+</head>
+<body>
+      </div>
+
+  <div class="bg-blur blur-1"></div>
+  <div class="bg-blur blur-2"></div>
+
+  <header class="header">
+    <div class="container nav">
+      <a href="index.html" class="logo">Zyntric<span>AI</span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="about.html">About</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="account.html" class="btn btn-nav active-btn">Account</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="section account-section">
+      <div class="container account-wrap">
+        <div class="account-info reveal">
+          <span class="badge">Welcome to ZyntricAI</span>
+          <h1>Access your <em>AI workspace</em></h1>
+          <p>Login to continue managing your workflows, analytics and premium tools.</p>
+          <div class="account-points">
+            <div class="point-card">
+              <div class="point-num">01</div>
+              <div>
+                <h4>Secure Access</h4>
+                <p>Protected authentication for your team and data.</p>
+              </div>
+            </div>
+            <div class="point-card">
+              <div class="point-num">02</div>
+              <div>
+                <h4>Quick Setup</h4>
+                <p>Create your workspace and start using AI in minutes.</p>
+              </div>
+            </div>
+            <div class="point-card">
+              <div class="point-num">03</div>
+              <div>
+                <h4>Full Control</h4>
+                <p>Manage billing, teams and integrations from one hub.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="auth-card reveal">
+          <div class="auth-tabs">
+            <button class="tab-btn active" data-tab="login">Login</button>
+            <button class="tab-btn" data-tab="signup">Sign Up</button>
+          </div>
+          <div class="auth-content">
+            <form id="login" class="auth-form active-form">
+              <h2>Welcome back</h2>
+              <p>Sign in to your ZyntricAI workspace.</p>
+              <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="you@company.com" required />
+              </div>
+              <div class="input-group">
+                <label>Password</label>
+                <input type="password" placeholder="••••••••" required />
+              </div>
+              <button type="submit" class="btn btn-primary full-btn">Login to Workspace</button>
+              <p class="form-text">No account yet? <a href="#">Switch to Sign Up</a></p>
+            </form>
+
+            <form id="signup" class="auth-form">
+              <h2>Create account</h2>
+              <p>Start your free ZyntricAI workspace today.</p>
+              <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="Your full name" required />
+              </div>
+              <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="you@company.com" required />
+              </div>
+              <div class="input-group">
+                <label>Password</label>
+                <input type="password" placeholder="Create a strong password" required />
+              </div>
+              <button type="submit" class="btn btn-primary full-btn">Create Account</button>
+              <p class="form-text">Already have an account? <a href="#">Switch to Login</a></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-wrap">
+      <p>© 2026 ZyntricAI. Secure access to premium AI tools.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

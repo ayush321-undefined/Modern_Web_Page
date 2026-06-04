@@ -1,0 +1,153 @@
+/* ============================================
+   Page Hero Override
+   ============================================ */
+
+.page-hero p {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   Glow Card Component
+   ============================================ */
+
+.glow-card {
+  position: relative;
+  overflow: hidden;
+  transition: 0.35s var(--ease);
+}
+
+.glow-card:hover {
+  border-color: rgba(0, 171, 228, 0.3);
+}
+
+.glow-card::before {
+  content: '';
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 171, 228, 0.15), transparent 70%);
+  top: -80px;
+  right: -80px;
+  transition: opacity 0.5s;
+}
+
+.glow-card:hover::before {
+  opacity: 1.5;
+}
+
+/* ============================================
+   Glass Panel
+   ============================================ */
+
+.glass-panel {
+  padding: 28px;
+  height: 100%;
+}
+
+/* ============================================
+   Progress Section
+   ============================================ */
+
+.progress-group {
+  margin-top: 24px;
+  display: grid;
+  gap: 20px;
+}
+
+.progress-item {
+  /* Progress item container */
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.progress-item span {
+  color: #dbe7f6;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.progress-val {
+  color: var(--secondary);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   Progress Bar
+   ============================================ */
+
+.progress {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(0, 171, 228, 0.08);
+  overflow: hidden;
+  border: 1px solid rgba(0, 171, 228, 0.1);
+}
+
+.progress div {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--gradient);
+  position: relative;
+  animation: progressFill 1.2s var(--ease) both;
+  transform-origin: left;
+}
+
+.progress div::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 10px var(--secondary);
+}
+
+@keyframes progressFill {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0 0% 0 0);
+  }
+}
+
+/* ============================================
+   Category Chips
+   ============================================ */
+
+.category-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.chip {
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: none;
+  transition: 0.25s var(--ease);
+}
+
+.chip:hover,
+.chip.active {
+  background: rgba(0, 171, 228, 0.1);
+  border-color: rgba(0, 171, 228, 0.3);
+  color: var(--secondary);
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing - ZyntricAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/pricing.css" />
+</head>
+<body>
+      </div>
+
+  <div class="bg-blur blur-1"></div>
+  <div class="bg-blur blur-2"></div>
+
+  <header class="header">
+    <div class="container nav">
+      <a href="index.html" class="logo">Zyntric<span>AI</span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="about.html">About</a>
+        <a href="pricing.html" class="active">Pricing</a>
+        <a href="account.html" class="btn btn-nav">Account</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="page-hero section">
+      <div class="container reveal">
+        <span class="badge">Simple Pricing</span>
+        <h1>Plans built around <em>your growth stage</em></h1>
+        <p>Flexible pricing for individuals, startups and enterprise-scale teams.</p>
+        <div style="margin-top:28px; display:flex; justify-content:center;">
+          <div class="pricing-toggle reveal">
+            Monthly
+            <div class="toggle-pill" id="billingToggle"></div>
+            Annual <span class="save-badge">Save 20%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container pricing-grid">
+        <div class="pricing-card reveal">
+          <div class="icon">🌱</div>
+          <span class="plan-name">Starter</span>
+          <div class="price" data-monthly="$19" data-yearly="$15">$19<span>/mo</span></div>
+          <p class="plan-desc">Perfect for creators and solo founders.</p>
+          <div class="plan-divider"></div>
+          <ul class="styled-list">
+            <li>5 AI workspaces</li>
+            <li>Basic analytics</li>
+            <li>Email support</li>
+            <li>Limited automation</li>
+          </ul>
+          <a href="account.html" class="btn btn-secondary full-btn">Choose Starter</a>
+        </div>
+
+        <div class="pricing-card featured reveal">
+          <div class="popular-tag">Most Popular</div>
+          <div class="icon">🚀</div>
+          <span class="plan-name">Pro</span>
+          <div class="price" data-monthly="$49" data-yearly="$39">$49<span>/mo</span></div>
+          <p class="plan-desc">Built for fast-growing teams and startups.</p>
+          <div class="plan-divider"></div>
+          <ul class="styled-list">
+            <li>Unlimited AI projects</li>
+            <li>Advanced workflow automation</li>
+            <li>Team collaboration</li>
+            <li>Priority support</li>
+          </ul>
+          <a href="account.html" class="btn btn-primary full-btn">Start Pro</a>
+        </div>
+
+        <div class="pricing-card reveal">
+          <div class="icon">🏢</div>
+          <span class="plan-name">Enterprise</span>
+          <div class="price" data-monthly="$99" data-yearly="$79">$99<span>/mo</span></div>
+          <p class="plan-desc">For premium brands and large organizations.</p>
+          <div class="plan-divider"></div>
+          <ul class="styled-list">
+            <li>Custom AI deployment</li>
+            <li>Advanced security</li>
+            <li>Dedicated account manager</li>
+            <li>Custom integrations</li>
+          </ul>
+          <a href="account.html" class="btn btn-secondary full-btn">Contact Sales</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-wrap">
+      <p>© 2026 ZyntricAI. Clear pricing. Premium value.</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="account.html">Account</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

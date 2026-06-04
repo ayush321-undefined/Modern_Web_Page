@@ -1,0 +1,245 @@
+/* ============================================
+   Account Section
+   ============================================ */
+
+.account-section {
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+}
+
+/* ============================================
+   Account Wrapper Layout
+   ============================================ */
+
+.account-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+/* ============================================
+   Account Information
+   ============================================ */
+
+.account-info h1 {
+  font-size: clamp(2.4rem, 4vw, 4.2rem);
+  margin-bottom: 16px;
+  letter-spacing: -0.05em;
+}
+
+.account-info > p {
+  color: var(--muted);
+  max-width: 420px;
+  line-height: 1.7;
+}
+
+/* ============================================
+   Account Points Grid
+   ============================================ */
+
+.account-points {
+  margin-top: 30px;
+  display: grid;
+  gap: 14px;
+}
+
+/* ============================================
+   Point Card
+   ============================================ */
+
+.point-card {
+  padding: 20px 24px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  transition: 0.35s var(--ease);
+}
+
+.point-card:hover {
+  border-color: var(--border-hover);
+  transform: translateX(8px);
+}
+
+/* ============================================
+   Point Number Badge
+   ============================================ */
+
+.point-num {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--gradient);
+  display: grid;
+  place-items: center;
+  font-size: 0.78rem;
+  font-weight: 900;
+  color: #FFFFFF;
+}
+
+.point-card h4 {
+  font-size: 0.95rem;
+  margin-bottom: 3px;
+}
+
+.point-card p {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+/* ============================================
+   Auth Card
+   ============================================ */
+
+.auth-card {
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-card::before {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 119, 182, 0.15), transparent 70%);
+  top: -80px;
+  right: -80px;
+  pointer-events: none;
+}
+
+/* ============================================
+   Authentication Tabs
+   ============================================ */
+
+.auth-tabs {
+  display: flex;
+  background: rgba(0, 171, 228, 0.06);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px;
+  margin-bottom: 26px;
+  gap: 4px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 11px 16px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  border-radius: 999px;
+  cursor: none;
+  font-weight: 700;
+  font-size: 0.92rem;
+  transition: 0.3s var(--ease);
+}
+
+.tab-btn.active {
+  background: var(--gradient);
+  color: #FFFFFF;
+  box-shadow: 0 4px 20px var(--glow-s);
+}
+
+/* ============================================
+   Auth Form
+   ============================================ */
+
+.auth-form {
+  display: none;
+  animation: fadeUp 0.45s var(--ease);
+}
+
+.auth-form.active-form {
+  display: block;
+}
+
+.auth-form h2 {
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+}
+
+/* ============================================
+   Input Group
+   ============================================ */
+
+.input-group {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 13px 16px;
+  background: rgba(0, 171, 228, 0.04);
+  border-radius: 12px;
+  font-size: 0.97rem;
+  font-family: 'Cabinet Grotesk', sans-serif;
+  transition: 0.3s var(--ease);
+}
+
+.input-group input:focus {
+  border-color: rgba(0, 171, 228, 0.45);
+  box-shadow: 0 0 0 4px rgba(0, 171, 228, 0.09);
+  background: rgba(0, 171, 228, 0.06);
+}
+
+.input-group input::placeholder {
+  color: var(--muted);
+}
+
+/* ============================================
+   Form Text & Links
+   ============================================ */
+
+.form-text {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.form-text a {
+  color: var(--secondary);
+  transition: opacity 0.2s;
+}
+
+.form-text a:hover {
+  opacity: 0.8;
+}
+
+/* ============================================
+   Responsive Design - Tablet
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .account-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   Responsive Design - Mobile
+   ============================================ */
+
+@media (max-width: 768px) {
+  .account-info h1 {
+    letter-spacing: -0.04em;
+  }
+
+  .tab-btn {
+    cursor: auto;
+  }
+}

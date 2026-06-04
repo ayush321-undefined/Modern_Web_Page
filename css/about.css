@@ -1,0 +1,94 @@
+/* ============================================
+   Page Hero Override
+   ============================================ */
+
+.page-hero p {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   Split Card Component
+   ============================================ */
+
+.split-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.split-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--gradient);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.split-card:hover::after {
+  opacity: 1;
+}
+
+.split-card h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  margin-bottom: 14px;
+}
+
+/* ============================================
+   Value Icon
+   ============================================ */
+
+.value-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(0, 171, 228, 0.07);
+  border: 1px solid var(--border);
+  font-size: 1.3rem;
+  margin-bottom: 18px;
+  transition: transform 0.35s var(--ease), background 0.35s;
+}
+
+.split-card:hover .value-icon {
+  transform: rotate(-8deg) scale(1.1);
+  background: rgba(0, 171, 228, 0.15);
+  border-color: rgba(0, 171, 228, 0.3);
+}
+
+/* ============================================
+   CTA Section Box
+   ============================================ */
+
+.cta-section .cta-box {
+  padding: 38px 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section .cta-box::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 50%, rgba(0, 119, 182, 0.1), transparent 60%);
+  pointer-events: none;
+}
+
+/* ============================================
+   Responsive Design - Tablet
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .cta-section .cta-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

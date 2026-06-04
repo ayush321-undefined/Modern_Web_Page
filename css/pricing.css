@@ -1,0 +1,200 @@
+/* ============================================
+   Page Hero Override
+   ============================================ */
+
+.page-hero p {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   Pricing Toggle
+   ============================================ */
+
+.pricing-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 6px 6px 16px;
+  margin-bottom: 52px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* ============================================
+   Toggle Pill (Switch)
+   ============================================ */
+
+.toggle-pill {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  background: rgba(0, 171, 228, 0.08);
+  border-radius: 999px;
+  cursor: none;
+  transition: background 0.3s;
+  border: 1px solid var(--border);
+}
+
+.toggle-pill::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--gradient);
+  transition: transform 0.3s var(--ease);
+}
+
+.toggle-pill.on {
+  background: rgba(0, 171, 228, 0.12);
+  border-color: rgba(0, 171, 228, 0.35);
+}
+
+.toggle-pill.on::after {
+  transform: translateX(20px);
+}
+
+/* ============================================
+   Save Badge
+   ============================================ */
+
+.save-badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(233, 241, 250, 0.1);
+  border: 1px solid rgba(233, 241, 250, 0.2);
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+/* ============================================
+   Pricing Card
+   ============================================ */
+
+.pricing-card {
+  position: relative;
+  cursor: none;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(0, 171, 228, 0.3);
+  box-shadow: 0 30px 80px rgba(0, 171, 228, 0.1), 0 0 0 1px rgba(0, 171, 228, 0.18);
+}
+
+.pricing-card .icon {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(0, 171, 228, 0.08);
+  border: 1px solid var(--border);
+  font-size: 1.3rem;
+  margin-bottom: 18px;
+  transition: transform 0.35s var(--ease);
+}
+
+.pricing-card:hover .icon {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+/* ============================================
+   Price Display
+   ============================================ */
+
+.price {
+  font-size: 2.8rem;
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  margin: 14px 0 8px;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.price span {
+  font-size: 1rem;
+  font-weight: 500;
+  background: none;
+  -webkit-text-fill-color: var(--muted);
+  letter-spacing: 0;
+}
+
+/* ============================================
+   Plan Information
+   ============================================ */
+
+.plan-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.plan-desc {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+/* ============================================
+   Featured Plan
+   ============================================ */
+
+.featured {
+  border-color: rgba(0, 119, 182, 0.3);
+  background: linear-gradient(180deg, rgba(0, 119, 182, 0.09), rgba(0, 171, 228, 0.04));
+}
+
+.featured:hover {
+  border-color: rgba(0, 171, 228, 0.4);
+  box-shadow: 0 30px 80px rgba(0, 119, 182, 0.18), 0 0 60px rgba(0, 171, 228, 0.1);
+}
+
+/* ============================================
+   Popular Tag
+   ============================================ */
+
+.popular-tag {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: rgba(0, 171, 228, 0.12);
+  color: var(--secondary);
+  border: 1px solid rgba(0, 171, 228, 0.28);
+  letter-spacing: 0.03em;
+}
+
+/* ============================================
+   Plan Divider
+   ============================================ */
+
+.plan-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 18px 0;
+}
+
+/* ============================================
+   Responsive Design - Tablet
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .pricing-toggle {
+    margin-bottom: 36px;
+  }
+}

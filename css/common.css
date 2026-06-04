@@ -1,0 +1,750 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Instrument+Serif:ital@0;1&display=swap');
+
+/* ============================================
+   CSS Variables & Root Styles
+   ============================================ */
+
+:root {
+  --bg: #F2F4F7;
+  --bg-soft: #E8ECF2;
+  --panel: rgba(0, 171, 228, 0.06);
+  --panel-strong: rgba(0, 171, 228, 0.12);
+  --border: rgba(0, 171, 228, 0.2);
+  --border-hover: rgba(0, 119, 182, 0.45);
+  --text: #0A1929;
+  --muted: #4A7B9D;
+  --primary: #0077B6;
+  --secondary: #00ABE4;
+  --accent: #E9F1FA;
+  --gradient: linear-gradient(135deg, #0077B6 0%, #00ABE4 100%);
+  --glow-p: rgba(0, 119, 182, 0.2);
+  --glow-s: rgba(0, 171, 228, 0.18);
+  --shadow: 0 4px 24px rgba(0, 119, 182, 0.08);
+  --radius: 20px;
+  --radius-sm: 14px;
+  --container: 1200px;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================================
+   Reset & Base Styles
+   ============================================ */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #F2F4F7;
+  color: var(--text);
+  font-family: 'Cabinet Grotesk', sans-serif;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Cabinet Grotesk', sans-serif;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+h1 em,
+h2 em {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  letter-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ============================================
+   Layout Classes
+   ============================================ */
+
+.container {
+  width: min(92%, var(--container));
+  margin: 0 auto;
+}
+
+.section {
+  padding: 100px 0;
+}
+
+.page-main {
+  padding-top: 100px;
+}
+
+/* ============================================
+   Background Noise Effect
+   ============================================ */
+
+body::before {
+  display: none;
+}
+
+/* ============================================
+   Header & Navigation
+   ============================================ */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background: #F2F4F7;
+  box-shadow: 0 1px 20px rgba(0, 119, 182, 0.06);
+}
+
+.nav {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.logo span {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.nav-links a {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.25s;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--gradient);
+  border-radius: 99px;
+  transition: width 0.3s var(--ease);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+/* ============================================
+   Button Styles
+   ============================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 13px 26px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.35s var(--ease);
+  border: 1px solid transparent;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: opacity 0.25s;
+  border-radius: inherit;
+}
+
+.btn:hover::after {
+  opacity: 1;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--gradient);
+  color: #FFFFFF;
+  box-shadow: 0 8px 32px var(--glow-s);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 12px 40px var(--glow-s), 0 0 60px var(--glow-p);
+}
+
+.btn-secondary {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.btn-secondary:hover {
+  border-color: var(--border-hover);
+}
+
+.btn-nav {
+  padding: 9px 18px;
+  font-size: 0.88rem;
+  background: var(--panel);
+  border: 1px solid var(--border);
+}
+
+.active-btn {
+  background: var(--gradient) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+}
+
+/* ============================================
+   Badges & Labels
+   ============================================ */
+
+.badge,
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--primary);
+  font-size: 0.84rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+  letter-spacing: 0.01em;
+}
+
+.badge::before,
+.section-label::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--secondary);
+  box-shadow: 0 0 8px var(--secondary);
+  animation: pulse-dot 2s ease infinite;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(0.7);
+  }
+}
+
+.gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ============================================
+   Section Head
+   ============================================ */
+
+.section-head {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 56px;
+}
+
+.section-head h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  margin-bottom: 14px;
+}
+
+.section-head p,
+.page-hero p,
+.feature-card p,
+.split-card p,
+.pricing-card p,
+.auth-form p,
+.footer p,
+.footer-links a {
+  color: var(--muted);
+}
+
+/* ============================================
+   Page Hero
+   ============================================ */
+
+.page-hero {
+  padding-top: 48px;
+  text-align: center;
+}
+
+.page-hero .container {
+  max-width: 860px;
+}
+
+.page-hero h1 {
+  font-size: clamp(2.8rem, 5.5vw, 5.2rem);
+  margin-bottom: 22px;
+  letter-spacing: -0.05em;
+}
+
+/* ============================================
+   Card Components
+   ============================================ */
+
+.feature-card,
+.split-card,
+.pricing-card,
+.cta-box,
+.auth-card,
+.point-card,
+.dashboard-card,
+.glass-panel,
+.stat-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(24px);
+  transition: border-color 0.35s var(--ease), transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+
+.feature-card,
+.pricing-card,
+.split-card {
+  padding: 30px;
+}
+
+.feature-card:hover,
+.pricing-card:hover,
+.split-card:hover,
+.point-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--border-hover);
+  box-shadow: 0 30px 80px rgba(0, 119, 182, 0.12), 0 0 0 1px var(--border-hover);
+}
+
+.feature-card h3,
+.pricing-card h3 {
+  margin-bottom: 10px;
+}
+
+.feature-card .icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(0, 171, 228, 0.08);
+  border: 1px solid var(--border);
+  font-size: 1.3rem;
+  margin-bottom: 22px;
+  transition: transform 0.35s var(--ease);
+}
+
+.feature-card:hover .icon {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+/* ============================================
+   Grid Layouts
+   ============================================ */
+
+.cards-3,
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.split-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* ============================================
+   Styled List
+   ============================================ */
+
+.styled-list {
+  margin-top: 18px;
+  display: grid;
+  gap: 12px;
+}
+
+.styled-list li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.styled-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--secondary);
+  box-shadow: 0 0 8px var(--secondary);
+}
+
+.full-btn {
+  width: 100%;
+  margin-top: 22px;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 26px 0;
+  background: rgba(0, 171, 228, 0.02);
+}
+
+.footer-wrap {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-links {
+  display: flex;
+  gap: 18px;
+}
+
+.footer-links a {
+  font-size: 0.9rem;
+  transition: color 0.25s;
+}
+
+.footer-links a:hover {
+  color: var(--text);
+}
+
+/* ============================================
+   Ambient Background Effects
+   ============================================ */
+
+.bg-blur {
+  display: none;
+}
+
+.blur-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 119, 182, 0.22), transparent 70%);
+  top: -100px;
+  left: -150px;
+  animation: ambient1 18s ease-in-out infinite;
+}
+
+.blur-2 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 171, 228, 0.13), transparent 70%);
+  bottom: -100px;
+  right: -200px;
+  animation: ambient2 22s ease-in-out infinite;
+}
+
+@keyframes ambient1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(60px, -40px) scale(1.1);
+  }
+}
+
+@keyframes ambient2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(-50px, 30px) scale(1.08);
+  }
+}
+
+/* ============================================
+   Animations & Transitions
+   ============================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.floating {
+  animation: floatCard 6s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   Responsive Design - Tablet
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .feature-grid,
+  .cards-3,
+  .pricing-grid,
+  .split-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   Responsive Design - Mobile
+   ============================================ */
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 72px;
+    right: 4%;
+    width: 220px;
+    flex-direction: column;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.97);
+    border: 1px solid var(--border);
+    padding: 18px;
+    border-radius: 16px;
+    gap: 14px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: 0.3s var(--ease);
+  }
+
+  .nav-links.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .page-hero h1 {
+    letter-spacing: -0.04em;
+  }
+}
+/* ============================================
+   Dark Theme
+   ============================================ */
+
+[data-theme="dark"] {
+  --bg: #04101e;
+  --bg-soft: #071628;
+  --panel: rgba(233, 241, 250, 0.05);
+  --panel-strong: rgba(233, 241, 250, 0.09);
+  --border: rgba(0, 171, 228, 0.16);
+  --border-hover: rgba(0, 171, 228, 0.4);
+  --text: #E9F1FA;
+  --muted: #7aaac8;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] body {
+  background: #04101e;
+}
+
+[data-theme="dark"] .header {
+  background: rgba(4, 16, 30, 0.96) !important;
+}
+
+[data-theme="dark"] .nav-links {
+  background: transparent;
+}
+
+[data-theme="dark"] .feature-card,
+[data-theme="dark"] .split-card,
+[data-theme="dark"] .pricing-card,
+[data-theme="dark"] .cta-box,
+[data-theme="dark"] .auth-card,
+[data-theme="dark"] .point-card,
+[data-theme="dark"] .dashboard-card,
+[data-theme="dark"] .glass-panel,
+[data-theme="dark"] .stat-card {
+  background: rgba(233, 241, 250, 0.05);
+}
+
+[data-theme="dark"] .footer {
+  background: rgba(0, 171, 228, 0.02);
+}
+
+[data-theme="dark"] .nav-links a {
+  color: var(--muted);
+}
+
+[data-theme="dark"] .nav-links a:hover,
+[data-theme="dark"] .nav-links a.active {
+  color: var(--text);
+}
+
+/* ============================================
+   Theme Toggle Button
+   ============================================ */
+
+.theme-toggle {
+  width: 40px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s;
+  flex-shrink: 0;
+}
+
+.theme-toggle::before {
+  content: '☀️';
+  position: absolute;
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  line-height: 1;
+  transition: opacity 0.3s;
+}
+
+.theme-toggle::after {
+  content: '🌙';
+  position: absolute;
+  right: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  line-height: 1;
+  opacity: 0.4;
+  transition: opacity 0.3s;
+}
+
+[data-theme="dark"] .theme-toggle::before {
+  opacity: 0.4;
+}
+
+[data-theme="dark"] .theme-toggle::after {
+  opacity: 1;
+}
+
+[data-theme="dark"] .theme-toggle {
+  background: rgba(0, 171, 228, 0.15);
+  border-color: rgba(0, 171, 228, 0.3);
+}
